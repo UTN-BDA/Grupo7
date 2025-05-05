@@ -6,5 +6,10 @@
 - María Belén Sarome
 
 ## Descripción
-Nuestro proyecto es una plataforma de ecommerce, donde se manejen datos de los distintos productos del catálogo, los clientes y las compras realizadas.
+Proyecto de software para una empresa de mudanzas que permita identificar cada caja con un código y gestionar información sobre los clientes y objetos transportados
+
+## Tecnologías
+Usamos el lenguaje de programación python, sqlalchemy como ORM, la libreria flask.
+Como motor de bases de datos usamos postgresql.
+Utilizamos contenedores Docker para la base de datos y para implementar el proyecto.
 
