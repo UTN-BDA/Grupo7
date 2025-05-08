@@ -1,0 +1,42 @@
+@startuml EntityDiagram
+
+entity User {
+    *id : Integer <<PK>>
+    --
+    username: String
+    email:String
+    password: String
+    name:String
+}
+entity Box {
+    *id : Integer <<PK>>
+    --
+    user_id: Integer <<FK>>
+    name : String
+    created_at : DateTime
+}
+
+entity Product {
+    *id : Integer <<PK>>
+    --
+    name : String
+    description: String
+    box_id: Integer <<FK>>
+}
+
+entity ProductHistory {
+    *id : Integer <<PK>>
+    --
+    product_id : Integer <<FK>>
+    box_id_after : Integer <<FK>>
+    box_id_before : Integer <<FK>>
+    timestamp : DateTime
+}
+
+' Relaciones
+User ||--o{ Box : owns
+Box ||--o{ Product : contains
+Box ||--|| ProductHistory : references
+Product ||--o{ ProductHistory : records
+
+@enduml

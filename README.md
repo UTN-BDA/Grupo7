@@ -6,7 +6,7 @@
 - María Belén Sarome
 
 ## Descripción
-Proyecto de software para una empresa de mudanzas que permita identificar cada caja con un código y gestionar información sobre los clientes y objetos transportados
+Proyecto de software que permite que un usuario identifique cada caja con un código y gestionar información sobre los objetos que se encuentran dentro.
 
 ## Tecnologías
 Usamos el lenguaje de programación python, sqlalchemy como ORM, la libreria flask.
