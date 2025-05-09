@@ -1,0 +1,53 @@
+
+@startuml ClassDiagram
+
+class User {
+    - id: int
+    - username: str
+    - email: str
+    - password: str
+    - name: str
+    --
+    + create_box(name: str) : Box
+    + get_boxes() : List[Box]
+}
+
+class Box {
+    - id: int
+    - user_id: int
+    - name: str
+    - created_at: datetime
+    --
+    + add_product(name: str, description: str) : Product
+    + get_products() : List[Product]
+    + remove_product(product: Product) : ProductHistory
+}
+
+class Product {
+    - id: int
+    - name: str
+    - description: str
+    - box_id: int
+    --
+    + move_to_box(new_box: Box) : ProductHistory
+    + remove_from_box() : ProductHistory
+}
+
+class ProductHistory {
+    - id: int
+    - product_id: int
+    - box_id_before: int
+    - box_id_after: Optional[int] 
+    - timestamp: datetime
+    --
+    + get_action() : str
+    + __str__() : str
+}
+
+' Relationships (English)
+User "1" o-- "*" Box : owns
+Box "1" o-- "*" Product : contains
+Product "1" o-- "*" ProductHistory : has history
+Box "1" -- "0..*" ProductHistory : involved in
+
+@enduml
