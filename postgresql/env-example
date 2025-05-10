@@ -1,0 +1,6 @@
+POSTGRES_USER = 'usuario'
+POSTGRES_PASSWORD = 'contraseña'
+POSTGRES_DB = 'db_0'
+
+PGADMIN_EMAIL = 'ejemplo@gmail.com'
+PGADMIN_PASSWORD = 'contraseña-pgadmin'

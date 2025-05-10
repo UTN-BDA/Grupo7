@@ -15,9 +15,11 @@ Utilizamos contenedores Docker para la base de datos y para implementar el proye
 
 ## Como preparar entorno de trabajo
 
+Clonar este repositorio
+
 ### Entorno virtual
 
-Lo primero es crear un entorno virtual de python con el comando
+Crear un entorno virtual de python con el comando (ejecutar en la carpeta raiz del repositorio)
 
 `virtualenv venv`
 
@@ -29,6 +31,36 @@ Luego instalar los requerimientos del proyecto dentro del entorno virtual con el
 `pip install -r requirements.txt`
 
 ### Preparacion de la base de datos
-Crear bases de datos.
+Crear una instancia de postgress en un contenedor docker. Es necesario tener instalado docker desktop en la computadora antes. 
 
-Es necesario crear un archivo `.env` en la carpeta principal del repositorio, donde se encuentra el archivo app.py y configurar las rutas de acceso a las bases de datos . Definirlas como `TEST_DATABASE_URI` , `DEV_DATABASE_URI`  y `PROD_DATABASE_URI`
+Dentro de la carpeta postgresql crear un archivo .env como el siguiente ejemplo y definir las credenciales de postgresql y pgadmin.
+
+```
+POSTGRES_PASSWORD = 'usuario'
+POSTGRES_DB = 'db_0'
+POSTGRES_USER = 'contraseña'
+
+PGADMIN_EMAIL = 'ejemplo@gmail.com'
+PGADMIN_PASSWORD = 'contraseña-pgadmin'
+
+```
+
+En una terminal en la carpeta raiz del repositorio ejecutar
+
+`cd postgresql`
+
+`docker compose up -d`
+
+Estos comandos crearan una instancia de postgresql y de pgAdmin. 
+Para conectar pgAdmin a postgresql entar en un navegador a `http://localhost:5052/`, iniciar
+con las credenciales definidas anteriormente para pgAdmin y registrar un nuevo servidor.
+En la parte de connection del servidor, configurar 
+- Host name/address:  postgresql
+- Port: 5432
+- Username  y Password: usar credenciames definidas anteriormente para postgres
+
+Crear una base de datos. 
+
+Es necesario crear un archivo `.env` en la carpeta principal del repositorio y configurar la ruta de acceso a la bases de datos . Definirla como
+`DEV_DATABASE_URI` 
+

@@ -172,3 +172,8 @@ cython_debug/
 
 # PyPI configuration file
 .pypirc
+
+
+# database files
+/postgresql/_data/
+/postgresql/_pgadmin_data/
