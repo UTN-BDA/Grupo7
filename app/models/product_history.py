@@ -13,10 +13,10 @@ class ProductHistory(db.Model):
     timestamp = db.Column(db.DateTime, default=datetime.utcnow)
 
     # Relaciones
-    product = db.relationship('Product', back_populates='histories')
+    product = db.relationship('Product', back_populates='history')
     box_before = db.relationship('Box', foreign_keys=[box_id_before])
-    box_after = db.relationship('Box', back_populates='histories', foreign_keys=[box_id_after])
-
+    box_after = db.relationship('Box', foreign_keys=[box_id_after])
+ 
     def get_action(self) -> str:
         if self.box_id_before is None and self.box_id_after is not None:
             return "Agregado"

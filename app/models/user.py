@@ -16,6 +16,12 @@ class User(db.Model):
     #Relationships
     boxes = db.relationship('Box', back_populates='user', cascade='all, delete-orphan')
 
+    def create_box(self, name):
+        from app.models.box import Box
+        box = Box(name=name, user_id=self.id)
+        db.session.add(box)
+        db.session.commit()
+        return box
 
-    def __init__(self, boxes: Box = None):
-        self.boxes = Box()
+    def get_boxes(self):
+        return self.boxes
