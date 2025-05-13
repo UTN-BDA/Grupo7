@@ -1,4 +1,4 @@
-from datetime import datetime
+from datetime import datetime, timezone
 
 from app import db
 
@@ -10,7 +10,7 @@ class ProductHistory(db.Model):
     product_id = db.Column(db.Integer, db.ForeignKey('products.id'), nullable=False)
     box_id_before = db.Column(db.Integer, db.ForeignKey('boxes.id'), nullable=True)
     box_id_after = db.Column(db.Integer, db.ForeignKey('boxes.id'), nullable=True)
-    timestamp = db.Column(db.DateTime, default=datetime.utcnow)
+    timestamp = db.Column(db.DateTime, default=lambda: datetime.now(timezone.utc))
 
     # Relaciones
     product = db.relationship('Product', back_populates='history')
