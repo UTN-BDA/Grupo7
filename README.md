@@ -64,3 +64,15 @@ Crear una base de datos.
 Es necesario crear un archivo `.env` en la carpeta principal del repositorio y configurar la ruta de acceso a la bases de datos . Definirla como
 `DEV_DATABASE_URI` 
 
+### Migraciones
+
+Para crear una nueva migracion ejecutar una vez la app (`python app.py `) con el entorno virtual activado y luego el comando:
+
+`flask db migrate -m "nombre-migracion"`
+
+
+Para aplicar las migraciones existentes a la base de datos ejecutar:
+
+`flask db upgrade`
+
+
