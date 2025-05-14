@@ -75,4 +75,8 @@ Para aplicar las migraciones existentes a la base de datos ejecutar:
 
 `flask db upgrade`
 
+### Carga de datos de prueba
 
+Para cargar datos a la base de datos ejecutar:
+
+`python seed_data.py`

@@ -22,7 +22,6 @@ def create_app() -> None:
     ma.init_app(app)
     db.init_app(app)
 
-    from .models import Box, User, Product, ProductHistory
     migrate.init_app(app, db)
     
     

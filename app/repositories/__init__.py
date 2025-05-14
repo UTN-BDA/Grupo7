@@ -1,2 +1,4 @@
+from .user_repository import UserRepository
 from .box_repository import BoxRepository
 from .product_repository import ProductRepository
+from .product_history_repository import ProductHistoryRepository
