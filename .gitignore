@@ -177,3 +177,6 @@ cython_debug/
 # database files
 /postgresql/_data/
 /postgresql/_pgadmin_data/
+
+# database backups
+/backups/

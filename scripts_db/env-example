@@ -1,0 +1,9 @@
+DB_USER=usuario
+DB_PASSWORD=password
+DB_NAME=stock_dev
+DB_CONTAINER=postgresql
+BACKUP_DIR=./backups
+
+#restore
+BACKUP_FILE=./backups/backup_file.backup
+DB_NAME_RESTORE=stock_dev3
