@@ -66,7 +66,7 @@ Es necesario crear un archivo `.env` en la carpeta principal del repositorio y c
 
 ### Migraciones
 
-Para crear una nueva migracion ejecutar una vez la app (`python app.py `) con el entorno virtual activado y luego el comando:
+Para crear una nueva migracion ejecutar con el entorno virtual activado el comando:
 
 `flask db migrate -m "nombre-migracion"`
 

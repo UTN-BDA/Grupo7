@@ -7,3 +7,7 @@ BACKUP_DIR=./backups
 #restore
 BACKUP_FILE=./backups/backup_file.backup
 DB_NAME_RESTORE=stock_dev3
+
+# query performance
+DB_PORT = '5436'
+DB_HOST = 'localhost'
