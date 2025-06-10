@@ -1,0 +1,1 @@
+from .product_history_schema import ProductHistorySchema
