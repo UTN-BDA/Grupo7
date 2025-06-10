@@ -13,7 +13,7 @@ DB_USER = os.getenv("DB_USER")
 DB_PASSWORD = os.getenv("DB_PASSWORD")
 
 # EXPLAIN ANALYZE seguido de la consulta SELECT que queremos medir 
-QUERY = "EXPLAIN ANALYZE SELECT * FROM products  where box_id = 80"
+QUERY = "EXPLAIN ANALYZE SELECT * FROM products  where box_id = %s "
 
 REPEATS = 10
 
@@ -33,7 +33,7 @@ def measure_query_time():
 
     results = []
     for i in range(REPEATS):
-        cur.execute(QUERY)
+        cur.execute(QUERY, ('80',))
         rows = cur.fetchall()  
         text = str(rows)
 
