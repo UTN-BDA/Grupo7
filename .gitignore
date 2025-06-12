@@ -180,3 +180,5 @@ cython_debug/
 
 # database backups
 /backups/
+/scripts_db/.env
+
