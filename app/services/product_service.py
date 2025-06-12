@@ -19,4 +19,4 @@ class ProductService:
         return repository.get_by_id(id)
     
     def get_by_box(self, box_id: int) -> Product:
-        return repository.get_by_product(box_id)
+        return repository.get_by_box(box_id)
