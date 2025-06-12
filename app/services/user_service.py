@@ -19,4 +19,4 @@ class UserService:
         return repository.get_by_id(id)
     
     def get_by_username(self, username: str ) -> User:
-        return repository.get_by_product(username)
+        return repository.get_by_username(username)

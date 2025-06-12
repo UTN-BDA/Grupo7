@@ -18,5 +18,5 @@ class BoxService:
     def get_by_id(self, id: int) -> Box:
         return repository.get_by_id(id)
     
-    def get_by_product(self, user_id: int) -> Box:
-        return repository.get_by_product(user_id)
+    def get_by_user(self, user_id: int) -> Box:
+        return repository.get_by_user(user_id)
