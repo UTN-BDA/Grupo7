@@ -1,4 +1,5 @@
-from marshmallow import fields, Schema, post_load
+from marshmallow import Schema, fields, post_load
+
 
 class ProductHistorySchema(Schema):
     id = fields.Integer(required=False)
