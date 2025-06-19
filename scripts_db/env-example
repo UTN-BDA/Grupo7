@@ -8,6 +8,10 @@ BACKUP_DIR=./backups
 BACKUP_FILE=./backups/backup_file.backup
 DB_NAME_RESTORE=stock_dev3
 
+#test
+TEST_BACKUP_FILE= ./backups/backup_file.backup
+TEST_DB=stock_dev4
+
 # query performance
 DB_PORT = '5436'
 DB_HOST = 'localhost'
