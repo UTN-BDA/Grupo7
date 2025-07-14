@@ -1,4 +1,4 @@
-from flask import Blueprint, jsonify
+from flask import Blueprint, jsonify, request
 
 from app.mapping import BoxSchema
 from app.services import BoxService
@@ -7,6 +7,17 @@ box_bp = Blueprint('box', __name__)
 box_schema = BoxSchema()
 box_service = BoxService()
 
+@box_bp.route('box/create_box', methods=['POST'])
+def create_box():
+    #Leer valores del json 
+    box = box_schema.load(request.json)
+    box = box_service.create_box(box)
+    #Comprobar si se creo la caja
+    if box.id:
+        status_code = 200
+    else:
+        status_code = 500
+    return box_schema.dump(box), status_code
 @box_bp.route('box/by_user/<int:user_id>', methods=['GET'])
 def get_by_user(user_id: int):
     # Obtener todas las boxes del usuario
