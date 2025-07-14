@@ -21,10 +21,10 @@ Clonar este repositorio
 
 Crear un entorno virtual de python con el comando (ejecutar en la carpeta raiz del repositorio)
 
-`virtualenv venv`
+`python -m venv venv`
 
 A continuación activamos el entorno virtual
-`venv/Scripts/Activate`
+`venv\Scripts\activate`
 
 Luego instalar los requerimientos del proyecto dentro del entorno virtual con el comando
 
@@ -66,14 +66,18 @@ Es necesario crear un archivo `.env` en la carpeta principal del repositorio y c
 
 ### Migraciones
 
-Para crear una nueva migracion ejecutar con el entorno virtual activado el comando:
+Con el entorno virtual activado, para aplicar las migraciones existentes a la base de datos ejecutar:
 
-`flask db migrate -m "nombre-migracion"`
+```
+flask db upgrade
+```
 
+Si se realiza un cambio en el esquema de la base de datos, para crear una nueva migracion y aplicarla ejecutar los comandos:
 
-Para aplicar las migraciones existentes a la base de datos ejecutar:
-
-`flask db upgrade`
+```
+flask db migrate -m "nombre-migracion"
+flask db upgrade
+```
 
 ### Carga de datos de prueba
 
