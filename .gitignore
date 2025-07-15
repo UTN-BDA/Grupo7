@@ -182,3 +182,5 @@ cython_debug/
 /backups/
 /scripts_db/.env
 
+#mongo
+/postgresql/_mongo_data/
