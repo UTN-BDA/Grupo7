@@ -18,8 +18,8 @@ class UserService:
     def get_by_id(self, id: int) -> User:
         return repository.get_by_id(id)
     
-    # def get_by_username(self, username: str ) -> User:
-    #     return repository.get_by_username(username)
+    def get_by_email(self, email: str ) -> User:
+        return repository.get_by_email(email)
     
     def get_users(self, offset, per_page):
         return repository.get_users(offset, per_page)

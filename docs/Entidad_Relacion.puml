@@ -3,10 +3,9 @@
 entity User {
     *id : Integer <<PK>>
     --
-    username: String
     email:String
-    password: String
     name:String
+    phone:String
 }
 entity Box {
     *id : Integer <<PK>>

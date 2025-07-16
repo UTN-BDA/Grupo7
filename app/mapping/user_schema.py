@@ -3,10 +3,9 @@ from app.models.user import User
 
 class UserSchema(Schema):
     id = fields.Int(dump_only=True)
-    username = fields.Str(required=True)
-    password = fields.Str(required=True, load_only=True) 
-    email = fields.Email(required=True)
     name = fields.Str(required=True)
+    email = fields.Email(required=True)
+    phone = fields.Str(allow_none=True)
 
     @post_load
     def make_user(self, data, **kwargs):
