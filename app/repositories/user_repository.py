@@ -21,4 +21,8 @@ class UserRepository:
     def get_all(self):
         return User.query.all()
 
+    def get_users(self, offset, per_page):
+        return User.query.offset(offset).limit(per_page).all()
     
+    def search_by_name(self, name):
+        return User.query.filter(User.name.ilike(f"%{name}%")).all()
