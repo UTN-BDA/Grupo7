@@ -13,10 +13,9 @@ def seed_users(n=100):
     users = []
     for _ in range(n):
         user = User(
-            username=fake.unique.user_name(),
             email=fake.unique.email(),
-            password=fake.password(),
-            name=fake.name()
+            name=fake.name(),
+            phone=fake.phone_number()
         )
         db.session.add(user)
         users.append(user)
