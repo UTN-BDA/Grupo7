@@ -28,3 +28,7 @@ class ProductImageService:
 
     def get_image(self, product_id: int):
         return self.collection.find_one({"product_id": product_id})
+
+    def delete_image(self, product_id):
+        result = self.collection.delete_one({"product_id": product_id})
+        return result.deleted_count > 0

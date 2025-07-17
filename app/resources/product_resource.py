@@ -41,3 +41,11 @@ def get_image(product_id):
         mimetype=image_doc['content_type'],
         download_name=image_doc['filename']
     )
+
+@product_bp.route('/product/<int:product_id>/image', methods=['DELETE'])
+def delete_image(product_id):
+    deleted = image_service.delete_image(product_id)
+    if deleted:
+        return jsonify({"message": "Imagen eliminada con éxito"}), 200
+    else:
+        return jsonify({"error": "No se encontró imagen para eliminar"}), 404
