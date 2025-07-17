@@ -15,6 +15,27 @@ def get_by_box(box_id: int):
     result = product_schema.dump(products)
     return jsonify(result), 200
 
+@product_bp.route('/product', methods=['POST'])
+def create_product():
+    try:
+        data = request.get_json()
+        product = ProductSchema().load(data)
+        created = product_service.save(product)
+        return jsonify({
+            'message': 'Producto creado correctamente'
+        }), 201
+    except Exception as e:
+        return jsonify({'error': str(e)}), 400
+
+@product_bp.route('/product/<int:product_id>', methods=['DELETE'])
+def delete_product(product_id):
+    product = product_service.get_by_id(product_id)
+    if not product:
+        return jsonify({'error': 'Producto no encontrado'}), 404
+
+    product_service.delete(product)
+    return jsonify({'message': 'Producto eliminado correctamente'}), 200
+
 @product_bp.route('/product/<int:product_id>/image', methods=['POST'])
 def upload_image(product_id):
     if 'file' not in request.files:

@@ -8,7 +8,7 @@ class ProductRepository:
     def get_by_box(self, box_id):
         return Product.query.filter_by(box_id=box_id).all()
 
-    def save(self, product):
+    def save(self, product: Product):
         db.session.add(product)
         db.session.commit()
         return product
