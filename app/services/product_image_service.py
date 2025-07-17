@@ -9,13 +9,12 @@ load_dotenv(dotenv_path)
 
 class ProductImageService:
     def __init__(self):
-        mongo_host = os.getenv("MONGO_HOST")
-        mongo_port = int(os.getenv("MONGO_PORT"))
-        mongo_db = os.getenv("MONGO_DB")
+        mongo_uri = os.getenv("MONGO_URI")
         collection_name = os.getenv("MONGO_COLLECTION")
         
-        client = MongoClient(host=mongo_host, port=mongo_port)
-        db = client[mongo_db]
+        client = MongoClient(mongo_uri)
+        db_name = mongo_uri.split("/")[-1].split("?")[0]
+        db = client[db_name]
         self.collection = db[collection_name]
 
     def save_image(self, product_id: int, image_data: bytes, filename: str, content_type: str):
