@@ -1,5 +1,6 @@
 from flask import Blueprint, jsonify, request
-from app.mapping import UserSchema 
+
+from app.mapping import UserSchema
 from app.services import UserService
 
 user_bp = Blueprint('user', __name__)
@@ -41,3 +42,15 @@ def search_users_by_name():
     schema = UserSchema(many=True)
 
     return jsonify(schema.dump(users)), 200
+
+@user_bp.route('user/create_user', methods=['POST'])
+def create_user():
+    #Leer valores del json 
+    user = user_schema.load(request.json)
+    user = user_service.create_user(user)
+    #Comprobar si se creo la caja
+    if user.id:
+        status_code = 200
+    else:
+        status_code = 500
+    return user_schema.dump(user), status_code

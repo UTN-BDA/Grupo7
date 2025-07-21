@@ -12,6 +12,9 @@ class UserService:
     def save(self, user: User) ->User:
         return repository.save(user)
     
+    def create_user(self, user: User) ->User:
+        return repository.save(user)
+    
     def delete(self, user: User) -> None:
         repository.delete(user)
     
