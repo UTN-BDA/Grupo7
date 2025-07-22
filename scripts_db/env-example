@@ -15,3 +15,6 @@ TEST_DB=stock_dev4
 # query performance
 DB_PORT = '5436'
 DB_HOST = 'localhost'
+
+#restore mongo-URI de conexión a MongoDB
+MONGO_URI=mongodb://usuario:contrasena-mongo@localhost:27018/nombre_bd?authSource=admin
