@@ -9,10 +9,19 @@ product_service = ProductService()
 product_schema = ProductSchema(many=True)  # Porque puede haber varios productos por box
 image_service = ProductImageService()
 
+
+
 @product_bp.route('/product/by_box/<int:box_id>', methods=['GET'])
 def get_by_box(box_id: int):
     products = product_service.get_by_box(box_id)
     result = product_schema.dump(products)
+    return jsonify(result), 200
+
+@product_bp.route('/product/<int:id>', methods=['GET'])
+def get_by_id(id: int):
+    product = product_service.get_by_id(id)
+    schema = ProductSchema()
+    result = schema.dump(product)
     return jsonify(result), 200
 
 @product_bp.route('/product', methods=['POST'])
@@ -35,6 +44,21 @@ def delete_product(product_id):
 
     product_service.delete(product)
     return jsonify({'message': 'Producto eliminado correctamente'}), 200
+
+@product_bp.route('product/<int:product_id>/change_box', methods=['POST'])
+def change_product_box(product_id: int):
+    data = request.get_json()
+    new_box_id = data.get("new_box_id")
+
+    if new_box_id is None:
+        return jsonify({"error": "new_box_id is required"}), 400
+
+    try:
+        product_service.update_box(product_id, new_box_id)
+        return jsonify({"message": "Box updated successfully"}), 200
+    except Exception as e:
+        return jsonify({"error": str(e)}), 500
+
 
 @product_bp.route('/product/<int:product_id>/image', methods=['POST'])
 def upload_image(product_id):
@@ -70,3 +94,4 @@ def delete_image(product_id):
         return jsonify({"message": "Imagen eliminada con éxito"}), 200
     else:
         return jsonify({"error": "No se encontró imagen para eliminar"}), 404
+
