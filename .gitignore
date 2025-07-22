@@ -184,3 +184,7 @@ cython_debug/
 
 #mongo
 /postgresql/_mongo_data/
+# Ignorar backups de MongoDB
+backups_mongo/
+*.bson
+*.json
