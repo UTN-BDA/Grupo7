@@ -18,3 +18,10 @@ DB_HOST = 'localhost'
 
 #restore mongo-URI de conexión a MongoDB
 MONGO_URI=mongodb://usuario:contrasena-mongo@localhost:27018/nombre_bd?authSource=admin
+# Backup Mongo para testing
+MONGO_BACKUP_DIR=./backups_mongo
+MONGO_BACKUP_DATE=2025-07-23  # la fecha que se quiere restaurar
+DB_NAME_MONGO=nombre_bd
+TEST_DB_NAME=respaldo
+TEST_READ_USER=lectura_respaldo
+TEST_READ_PASSWORD=contrasena
